@@ -38,7 +38,7 @@ export const Departures = () => {
   }, [queue, isloading])
 
   const handleFetchData = () => {
-    setFetchCount(prev => prev + 1)
+    setFetchCount(currentValue => currentValue + 1)
     if (queue.length === 0) {
       setQueue([fetchCount])
 

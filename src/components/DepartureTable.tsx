@@ -5,7 +5,7 @@ export const DepartureTable = ({ data }: Departure) => {
         return <div>No data</div>
     }
 
-    const calulateTimeDifference = (expected: string, actual: string) => {
+    const calulatedTimeDifference = (expected: string, actual: string) => {
         const expectedTime = new Date(expected)
         const actualTime = new Date(actual)
 
@@ -26,7 +26,7 @@ export const DepartureTable = ({ data }: Departure) => {
                         <span>{publicCode}</span>
                         <span>{name}</span>
                         <span>{hours}:{minutes}</span>
-                        <span>Forsinket med:{calulateTimeDifference(call.expectedArrivalTime, call.aimedArrivalTime)} minutter</span>
+                        <span>Forsinket med:{calulatedTimeDifference(call.expectedArrivalTime, call.aimedArrivalTime)} minutter</span>
                     </div>
                 )
             })}
