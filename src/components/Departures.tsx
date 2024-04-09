@@ -10,6 +10,12 @@ export const Departures = () => {
   const [fetchCount, setFetchCount] = useState(0)
 
   useEffect(() => {
+    setFetchCount(currentValue => currentValue + 1)
+
+    setQueue([fetchCount])
+  }, [])
+
+  useEffect(() => {
     if (queue.length === 0 || isloading) {
       return
     }
@@ -57,6 +63,7 @@ export const Departures = () => {
   return (
     <div>
       <button onClick={handleFetchData}>Hent data</button>
+      {isloading && <p>Henter data...</p>}
       <DepartureTable data={data} />
     </div>
   )
