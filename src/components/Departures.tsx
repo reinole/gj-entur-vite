@@ -7,12 +7,10 @@ export const Departures = () => {
   const [data, setData] = useState(null)
   const [isloading, setIsLoading] = useState(false)
   const [queue, setQueue] = useState<number[]>([])
-  const [fetchCount, setFetchCount] = useState(0)
+  const [fetchCount, setFetchCount] = useState(1)
 
   useEffect(() => {
-    setFetchCount(currentValue => currentValue + 1)
-
-    setQueue([fetchCount])
+    setQueue([0])
   }, [])
 
   useEffect(() => {
