@@ -30,7 +30,7 @@ export const Departures = () => {
           setData(newData)
           setIsLoading(false)
           console.log('fetchDataFromQueue done')
-        }, 3000);
+        }, 3000)
       } catch (error) {
         console.error('Error fetching data:', error)
         setIsLoading(false)
@@ -46,7 +46,7 @@ export const Departures = () => {
     if (queue.length === 0) {
       setQueue([fetchCount])
 
-      return;
+      return
     }
 
     if (queue.length <= 1) {
@@ -60,6 +60,7 @@ export const Departures = () => {
 
   return (
     <div>
+      <h1>Entur case</h1>
       <button onClick={handleFetchData}>Hent data</button>
       {isloading && <p>Henter data...</p>}
       <DepartureTable data={data} />
