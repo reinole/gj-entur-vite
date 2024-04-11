@@ -60,6 +60,7 @@ export const Departures = () => {
 
   return (
     <div>
+      <h1>Entur case</h1>
       <button onClick={handleFetchData}>Hent data</button>
       {isloading && <p>Henter data...</p>}
       <DepartureTable data={data} />
