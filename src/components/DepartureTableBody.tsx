@@ -17,18 +17,19 @@ export const DepartureTableBody = ({ estimatedCalls }: DepartureTableBodyProps) 
     return (
         <tbody>
             {estimatedCalls && estimatedCalls.map((call: Call, i: number) => {
-                const { publicCode, name } = call.serviceJourney.journeyPattern.line
+                const { publicCode, name, id } = call?.serviceJourney?.journeyPattern?.line
+                const expectedArrival = call.expectedArrivalTime
 
-                const hours = new Date(call.expectedArrivalTime).getHours()
-                const hoursTwoDigits = hours < 10 ? `0${hours}` : hours
+                const hours = new Date(expectedArrival).getHours()
+                const hoursTwoDigits = hours.toString().padStart(2, "0")
 
-                const minutes = new Date(call.expectedArrivalTime).getMinutes()
-                const minutesTwoDigits = minutes < 10 ? `0${minutes}` : minutes
+                const minutes = new Date(expectedArrival).getMinutes()
+                const minutesTwoDigits = minutes.toString().padStart(2, "0")
 
-                const minutesLate = calulatedTimeDifference(call.expectedArrivalTime, call.aimedArrivalTime)
+                const minutesLate = calulatedTimeDifference(expectedArrival, call.aimedArrivalTime)
 
                 return (
-                    <tr key={call.serviceJourney.journeyPattern.line.id + i}>
+                    <tr key={id + i}>
                         <td>{publicCode}</td>
                         <td>{name}</td>
                         <td>{hoursTwoDigits}:{minutesTwoDigits}</td>
