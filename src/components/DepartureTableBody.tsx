@@ -27,12 +27,13 @@ export const DepartureTableBody = ({ estimatedCalls }: DepartureTableBodyProps) 
                 const minutesTwoDigits = minutes.toString().padStart(2, "0")
 
                 const minutesLate = calulatedTimeDifference(expectedArrival, call.aimedArrivalTime)
+                const readableTime = `${hoursTwoDigits}:${minutesTwoDigits}`
 
                 return (
                     <tr key={id + i}>
                         <td>{publicCode}</td>
                         <td>{name}</td>
-                        <td>{hoursTwoDigits}:{minutesTwoDigits}</td>
+                        <td><time dateTime={readableTime}>{readableTime}</time></td>
                         <td>{minutesLate}</td>
                     </tr>
                 )
