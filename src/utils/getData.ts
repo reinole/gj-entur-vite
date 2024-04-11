@@ -7,7 +7,6 @@ export const fetchData = async () => {
           id
           name  
           estimatedCalls(timeRange: 72100, numberOfDepartures: 10) { 
-            realtime
             aimedArrivalTime
             expectedArrivalTime
             serviceJourney {
@@ -15,7 +14,6 @@ export const fetchData = async () => {
                 line {
                   id
                   name
-                  transportMode
                   publicCode
                 }
               }
